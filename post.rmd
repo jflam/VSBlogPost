@@ -1,6 +1,9 @@
 ---
 title: "Introducing R Tools for Visual Studio"
-output: html_document
+output: 
+    html_document:
+        theme: cosmo
+        highlight: tango
 ---
 
 [R is a programming language](https://www.r-project.org/) that is widely used by
@@ -49,7 +52,7 @@ surface the R REPL through the R Interactive Window.
 As you can see, you can type 3 + 4 and have the result immediately computed by
 R; no compilation step necessary:
 
-```{r}
+```{r comment = NULL}
 3 + 4
 ```
 
@@ -76,7 +79,7 @@ the REPL.
 Next, you're using another R function, `head()` to display a summary of the first
 5 lines of the file:
 
-```{r}
+```{r comment = NULL}
 head(usa_airports)
 ```
 
@@ -107,10 +110,10 @@ Wickham](https://cran.rstudio.com/web/packages/dplyr/vignettes/introduction.html
 Let's say that we wanted to generate a list of airports located near New York
 city. You can do this easily via the `subset` function from `dplyr`:
 
-```{r}
+```{r message=FALSE}
 library(dplyr)
 new_york_airports <- subset(usa_airports, city == "New York")
-datatable(new_york_airports)
+datatable(new_york_airports[,c("name", "city", "country", "IATA_FAA", "lat", "lon", "altitude")])
 ```
 
 You can also do more sophisticated filtering: e.g., select all the airports in
@@ -123,6 +126,7 @@ low_nyc <-
 	filter(city == "New York" & altitude < 25) %>% 
 	arrange(altitude) %>% 
 	select(name, altitude, lat, lon)
+datatable(low_nyc)
 ```
 
 Here, you see a more sophisticated use of R syntax via the `%>%` or "pipe"
@@ -151,7 +155,7 @@ plotting circles on them using the `lon` and `lat` columns for the positions of
 the circles, and using the `name` column for the popup that appears when the
 user clicks on a circle.
 
-```{r}
+```{r fig.width=9.5, fig.height=5}
 library(leaflet)
 map <- 
     new_york_airports %>% 
