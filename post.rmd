@@ -238,4 +238,5 @@ embedding executable R code snippets within it.
 If you want to look at the source code for it, you can [get it at my
 Github](https://github.com/jflam/VSBlogPost).
 
-![](./vs_blog_post_light.png)
+![Light Theme Screenshot of
+RTVS](https://rawgit.com/jflam/VSBlogPost/master/vs_blog_post_light.png)
