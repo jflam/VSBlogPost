@@ -130,6 +130,32 @@ excellent blog post on how [magrittr was influenced by the forward pipe operator
 from
 F#](http://www.r-statistics.com/2014/08/simpler-r-coding-with-pipes-the-present-and-future-of-the-magrittr-package/).  
 
+## Plotting data on maps
+
+Once we have our dataset, we can go plot it on an interactive map. The [leaflet
+HtmlWidget](http://www.htmlwidgets.org/showcase_leaflet.html) is an excellent
+library for generating interactive maps. In the code fragment below, we take the
+dataframe that we generated via `dplyr` in the previous step, and using the
+now-familiar pipe operator send it to the `leaflet library`, asking it to
+generate map tiles and plotting circles on them using the `lon` and `lat`
+columns for the positions of the circles, and using the `name` column for the
+popup that appears when the user clicks on a circle.
+
+```{r}
+library(leaflet)
+low_nyc 
+    %>% leaflet() 
+    %>% addTiles() 
+    %>% addCircles(~lon, ~lat, popup = ~name) 
+    %>% print
+```
+
+
+
+## Building an interactive application with Shiny
+
+
+
 # One more thing ...
 
 We've talked about a bunch of things in this brief blog post. However, perhaps
