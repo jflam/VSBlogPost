@@ -115,10 +115,10 @@ below 25 feet elevation, ordering the rows by altitude and selecting only the
 name, altitude, lattitude and longitude of the airport:
 
 ```{r}
-low_nyc <- usa_airports 
-    %>% filter(city == "New York" & altitude < 25) 
-    %>% arrange(altitude) 
-    %>% select(name, altitude, lat, lon)
+low_nyc <- usa_airports %>% 
+	filter(city == "New York" & altitude < 25) %>% 
+	arrange(altitude) %>% 
+	select(name, altitude, lat, lon)
 ```
 
 Here, we see a more sophisticated use of R syntax via the `%>%` or "pipe"
@@ -143,11 +143,11 @@ popup that appears when the user clicks on a circle.
 
 ```{r}
 library(leaflet)
-low_nyc 
-    %>% leaflet() 
-    %>% addTiles() 
-    %>% addCircles(~lon, ~lat, popup = ~name) 
-    %>% print
+low_nyc %>% 
+	leaflet() %>% 
+	addTiles() %>% 
+	addCircles(~lon, ~lat, popup = ~name) %>% 
+	print
 ```
 
 
