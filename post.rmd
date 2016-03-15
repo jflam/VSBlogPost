@@ -175,12 +175,14 @@ its libraries.
 
 ### Introduction to the R Programming Language 
 
-1. [An Introduction to R](https://cran.r-project.org/doc/manuals/R-intro.pdf)
-   written by [David Smith](https://twitter.com/revodavid?lang=en), who
-   currently works at Microsoft on the R team.
+1. [An Introduction to R](https://cran.r-project.org/doc/manuals/R-intro.pdf) is
+   the official R Project introduction to the R language, and is written by
+   [David Smith](https://twitter.com/revodavid?lang=en), who currently works at
+   Microsoft on the R team.
+
 1. [Introduction to R
    Programming](https://www.edx.org/course/introduction-r-programming-microsoft-dat204x-1)
-   A free online class created by Microsoft to help you learn R.
+   is a free online class created by Microsoft to help you learn R.
 
 ### Key R Libraries
 
@@ -240,3 +242,11 @@ Github](https://github.com/jflam/VSBlogPost).
 
 ![Light Theme Screenshot of
 RTVS](https://rawgit.com/jflam/VSBlogPost/master/vs_blog_post_light.png)
+
+
+**John Lam** is the Program Manager for R Tools for Visual Studio, Python Tools
+for Visual Studio, and the Azure Jupyter Notebook Service. I work with an
+awesome team of devs building tools for data scientists. You can reach me on
+Twitter [\@john_lam](https://twitter.com/john_lam), or on
+[Github](https://github.com/jflam/). Oh, and I have jobs for Python devs. Hit me
+up at jflam@microsoft.com.
