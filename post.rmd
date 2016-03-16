@@ -40,8 +40,8 @@ deep introduction to the language:
 1. [Advanced R](http://adv-r.had.co.nz/)
 1. [The R Inferno](http://www.burns-stat.com/documents/books/the-r-inferno/)
 
-The remainder of this blog post is a quick tour of R, its libraries, and RTVS
-with the goal of inspiring you to learn more about the language, its libraries,
+The remainder of this blog post is a quick tour of R, its packages, and RTVS
+with the goal of inspiring you to learn more about the language, its packages,
 and how it can be a useful addition to your toolbox for analyzing data. 
 
 The quickest way to get started with R is through its [Read-Eval-Print Loop
@@ -70,9 +70,9 @@ usa_airports <- read.csv("https://raw.githubusercontent.com/jflam/VSBlogPost/mas
 
 In R, you assign variables using the `<-` operator, and you invoke functions
 using parenthesis. So in the code above, you're invoking the `read.csv()` R
-library function, passing in the URI to the CSV file. 
+function, passing in the URI to the CSV file. 
 
-You can get help on any R library function by using the `?` operator from the
+You can get help on any R function by using the `?` operator from the
 REPL. For example, to get help on the `read.csv` API, just type `?read.csv` in
 the REPL.
 
@@ -88,10 +88,10 @@ That's not surprising since [R has been around since
 1993](https://en.wikipedia.org/wiki/R_(programming_language)). Surely we can do
 better in 2016? 
 
-As it turns out, we can. There are a lot of libraries in R that bind the R
+As it turns out, we can. There are a lot of packages in R that bind the R
 programming language to the most powerful hardware-accelerated rendering
 platform on the planet: HTML. In R, this is accomplished through a set of Open
-Source libraries known as [htmlwidgets for R](http://www.htmlwidgets.org/).
+Source packages known as [htmlwidgets for R](http://www.htmlwidgets.org/).
 Below is the same dataframe rendered using the DataTable widget. We generate an
 HTML page that contains all of the data from the usa_airports dataframe, and
 open up a browser window using the default browser that shows an interactive
@@ -105,14 +105,14 @@ datatable(usa_airports[,c("name", "city", "country", "IATA_FAA", "lat", "lon", "
 ```
 
 If you prefer to manipulate your data programmatically, you can easily do so as
-well. A popular library for manipulating data is the [dplyr library by Hadley
+well. A popular package for manipulating data is the [dplyr package by Hadley
 Wickham](https://cran.rstudio.com/web/packages/dplyr/vignettes/introduction.html).
 Let's say that we wanted to generate a list of airports located near New York
 city. You can do this easily via the `subset` function from `dplyr`:
 
 ```{r message=FALSE}
 library(dplyr)
-new_york_airports <- subset(usa_airports, city == "New York")
+new_york_airports <- filter(usa_airports, city == "New York")
 datatable(new_york_airports[,c("name", "city", "country", "IATA_FAA", "lat", "lon", "altitude")])
 ```
 
@@ -147,10 +147,10 @@ F#](http://www.r-statistics.com/2014/08/simpler-r-coding-with-pipes-the-present-
 
 Once you have your dataset, you can plot it on an interactive map. The [leaflet
 HtmlWidget](http://www.htmlwidgets.org/showcase_leaflet.html) is an excellent
-library for generating interactive maps. In the code fragment below, you take
+package for generating interactive maps. In the code fragment below, you take
 the dataframe that contains low altitude New York City airports that you
 generated via `dplyr` in the previous step, and using the now-familiar pipe
-operator send it to the `leaflet library`, asking it to generate map tiles and
+operator send it to the `leaflet package`, asking it to generate map tiles and
 plotting circles on them using the `lon` and `lat` columns for the positions of
 the circles, and using the `name` column for the popup that appears when the
 user clicks on a circle.
@@ -171,29 +171,33 @@ There is lots more to learn about R than I have time or space for in this blog
 post. However, hopefully what I've done is whet your appetite to learn more
 about R. There are many, many things that I haven't covered in this blog post,
 so I've included a bunch of resources below to help you better understand R and
-its libraries. 
+its packages. 
 
 ### Introduction to the R Programming Language 
 
 1. [An Introduction to R](https://cran.r-project.org/doc/manuals/R-intro.pdf) is
    the official R Project introduction to the R language, and is written by
-   [David Smith](https://twitter.com/revodavid?lang=en), who currently works at
+   [David Smith](https://twitter.com/revodavid), who currently works at
    Microsoft on the R team.
+
+1. [R for Dummies](http://rfordummies.com/) is an introductory book on R,
+   written by [Andrie de Vries](https://twitter.com/revoandrie), who currently
+   works at Microsoft on the R team.
 
 1. [Introduction to R
    Programming](https://www.edx.org/course/introduction-r-programming-microsoft-dat204x-1)
    is a free online class created by Microsoft to help you learn R.
 
-### Key R Libraries
+### Key R Packages
 
 1. [dplyr](https://cran.rstudio.com/web/packages/dplyr/vignettes/introduction.html)
-   is the data manipulation "d plyer" library that is a key tool for helping you
+   is the data manipulation "d plyer" package that is a key tool for helping you
    quickly manipulate your data into a form that you can analyze.
 
-1. [ggplot2](http://ggplot2.org/) is a plotting library that builds on the
+1. [ggplot2](http://ggplot2.org/) is a plotting package that builds on the
    [grammar of graphics]() ideas by Hadley Wickham
 
-1. [ggvis](http://ggvis.rstudio.com/) is a plotting library that generates plots
+1. [ggvis](http://ggvis.rstudio.com/) is a plotting package that generates plots
    on an HTML canvas, using the same [grammar of
    graphics](http://vita.had.co.nz/papers/layered-grammar.pdf) semantics as
    ggplot2
@@ -204,7 +208,7 @@ its libraries.
 ### Microsoft R products
 
 Microsoft has a deep commitment to R, and provides a full-stack
-R solution for your applications, complete with tooling, runtimes and libraries.
+R solution for your applications, complete with tooling, runtimes and packages.
 
 1. [R Tools for Visual
    Studio](https://www.visualstudio.com/en-us/features/rtvs-vs.aspx/) is
@@ -219,12 +223,12 @@ R solution for your applications, complete with tooling, runtimes and libraries.
    package](https://cran.r-project.org/web/packages/checkpoint/index.html) to
    ensure that users of your R programs will be guaranteed to be able to run
    your R program [using the same version of the R
-   libraries](https://mran.revolutionanalytics.com/rro/#reproducibility) that
+   packages](https://mran.revolutionanalytics.com/rro/#reproducibility) that
    you used to create it.
 
 1. [Microsoft R
    Server](https://www.microsoft.com/en-us/server-cloud/products/r-server/) is
-   Microsoft's libraries for accelerated R computation on datasets that don't
+   Microsoft's packages for accelerated R computation on datasets that don't
    fit in system memory. It builds on top of the benefits of Microsoft R Open,
    and adds 
 
