@@ -49,7 +49,7 @@ The quickest way to get started with R is through its [Read-Eval-Print Loop
 which lets you send commands *interactively* to the R interpreter. In RTVS, we
 surface the R REPL through the R Interactive Window.
 
-As you can see, you can type 3 + 4 and have the result immediately computed by
+As you can see, you can type `3 + 4` and have the result immediately computed by
 R; no compilation step necessary:
 
 ```{r comment = NULL}
@@ -62,7 +62,7 @@ dataframe](http://www.r-tutor.com/r-introduction/data-frame), which is a
 convenient way of working with tabular datasets. There are many ways of
 getting data into an R dataframe, but perhaps the easiest is to read it from a
 URI. Below, you're reading a CSV file containing data about locations of
-airports in the United States from Github: 
+airports in the United States from GitHub: 
 
 ```{r}
 usa_airports <- read.csv("https://raw.githubusercontent.com/jflam/VSBlogPost/master/usa_airports.dat", stringsAsFactors = TRUE)
@@ -158,7 +158,7 @@ user clicks on a circle.
 ```{r fig.width=9.5, fig.height=5}
 library(leaflet)
 map <- 
-    new_york_airports %>% 
+    low_nyc %>% 
 	leaflet() %>% 
 	addTiles() %>% 
 	addCircles(~lon, ~lat, popup = ~name, radius = 200, color="blue", opacity = 0.8)
@@ -195,7 +195,7 @@ its packages.
    quickly manipulate your data into a form that you can analyze.
 
 1. [ggplot2](http://ggplot2.org/) is a plotting package that builds on the
-   [grammar of graphics]() ideas by Hadley Wickham
+   [grammar of graphics](http://vita.had.co.nz/papers/layered-grammar.pdf) ideas by Hadley Wickham
 
 1. [ggvis](http://ggvis.rstudio.com/) is a plotting package that generates plots
    on an HTML canvas, using the same [grammar of
@@ -242,7 +242,7 @@ language](https://daringfireball.net/projects/markdown/), which supports
 embedding executable R code snippets within it.
 
 If you want to look at the source code for it, you can [get it at my
-Github](https://github.com/jflam/VSBlogPost).
+GitHub](https://github.com/jflam/VSBlogPost).
 
 ![Light Theme Screenshot of
 RTVS](https://rawgit.com/jflam/VSBlogPost/master/vs_blog_post_light.png)
@@ -252,5 +252,5 @@ RTVS](https://rawgit.com/jflam/VSBlogPost/master/vs_blog_post_light.png)
 for Visual Studio, and the Azure Jupyter Notebook Service. I work with an
 awesome team of devs building tools for data scientists. You can reach me on
 Twitter [\@john_lam](https://twitter.com/john_lam), or on
-[Github](https://github.com/jflam/). Oh, and I have jobs for Python devs. Hit me
+[GitHub](https://github.com/jflam/). Oh, and I have jobs for Python devs. Hit me
 up at jflam@microsoft.com.
