@@ -13,6 +13,7 @@
       <UserProperties />
     </VisualStudio>
   </ProjectExtensions>
+  <Import Project="$(MSBuildUserExtensionsPath)\Microsoft\VisualStudio\v$(VisualStudioVersion)\RTVS\Rules\rtvs.rules.props" Condition="Exists('$(MSBuildUserExtensionsPath)\Microsoft\VisualStudio\v$(VisualStudioVersion)\RTVS\Rules\rtvs.rules.props')" />
   <Import Project="$(MSBuildExtensionsPath32)\Microsoft\VisualStudio\v$(VisualStudioVersion)\RTVS\Rules\rtvs.rules.props" Condition="Exists('$(MSBuildExtensionsPath32)\Microsoft\VisualStudio\v$(VisualStudioVersion)\RTVS\Rules\rtvs.rules.props')" />
   <Import Project="VSBlogPost.InMemory.Targets" Condition="Exists('VSBlogPost.InMemory.Targets')" />
 </Project>
