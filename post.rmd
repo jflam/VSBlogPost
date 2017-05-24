@@ -97,7 +97,26 @@ HTML page that contains all of the data from the usa_airports dataframe, and
 open up a browser window using the default browser that shows an interactive
 table containing the data. The data really is interactive; try typing "Seattle"
 into the search box to see it filter the data to only airports in Seattle in
-real time, or click on column headings to sort by that column.
+real time, or click on column headings to sort by that column. For that, we
+will need the [DT](https://rstudio.github.io/DT/) package. 
+
+However, we need to install the package before we can use it. Fortunately, R
+makes very easy to install packages from the web. Just run the following
+command: 
+
+```
+install.packages("DT")
+```
+
+And that's it. R will download and install the package automagically for you.
+You can of course run `install.packages()` to install any packages. You can
+even install more than one at once by using a vector, like this: 
+
+```
+install.packages(c("DT", "leaflet", "dplyr", "ggplot2", "ggvis", "rodbc"))
+```
+
+Now, we can proceed to use the package: 
 
 ```{r}
 library(DT)
